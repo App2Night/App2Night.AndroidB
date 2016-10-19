@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">App2Night</string>
-    <string name="Partys">Party's</string>
+    <string name="Partys">Partys</string>
     <string name="Standort">Standort</string>
     <string name="Account">Account</string>
     <string name="Einstellungen">Einstellungen</string>
     <string name="Kontakt">Kontakt</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
