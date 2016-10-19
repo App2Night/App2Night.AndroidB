@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/Bottombaritemone"
+        android:icon="@drawable/list_image"
+        android:title="@string/Partys" >
+    </item>
+
+    <item
+        android:id="@+id/Bottombaritemtwo"
+        android:icon="@drawable/location_image"
+        android:title="@string/Standort" >
+    </item>
+
+    <item
+        android:id="@+id/Bottombaritemthree"
+        android:icon="@drawable/account_image"
+        android:title="@string/Account" >
+    </item>
+
+    <item
+        android:id="@+id/Bottombaritemfour"
+        android:icon="@drawable/settings_image"
+        android:title="@string/Einstellungen" >
+    </item>
+
+    <item
+        android:id="@+id/Bottombaritemfive"
+        android:icon="@drawable/contact_image"
+        android:title="@string/Kontakt" >
+    </item>
+
+</menu>
