@@ -6,4 +6,44 @@
     <string name="Einstellungen">Einstellungen</string>
     <string name="Kontakt">Kontakt</string>
     <string name="title_activity_maps">Map</string>
+    <string name="wer">Wer?</string>
+    <string name="wo">Wo?</string>
+    <string name="wann">Wann?</string>
+    <string name="wieviel">Wie Viel?</string>
+
+    <string-array name="Veranstaltungsort">
+        <item>Darmsheim, Dätzinger Straße 110</item>
+        <item>Grafenau, Döffinger Straße 20</item>
+        <item>Böblingen, Herbert Straße 31</item>
+        <item>Sindelfingen, Gottlieb-Daimler-Straße 42</item>
+    </string-array>
+
+    <string-array name="Veranstalter">
+        <item>Vereinsheim Darmsheim</item>
+        <item>Vereinsheim Grafenau</item>
+        <item>Böblinger Gemeinde</item>
+        <item>Sindelfinger Gemeinde</item>
+    </string-array>
+
+    <string-array name="Veranstaltungseintritt">
+        <item>5 €</item>
+        <item>10 €</item>
+        <item>3 €</item>
+        <item>10 €</item>
+    </string-array>
+
+    <string-array name="Veranstaltungszeitpunkt">
+        <item>26. Oktober 21:00</item>
+        <item>30. September 20:00</item>
+        <item>22. Dezember 19:00</item>
+        <item>29. Oktober 23:00</item>
+    </string-array>
+
+    <string-array name="Veranstaltungsname">
+        <item>Wasen Warm-Up Darmsheim</item>
+        <item>Schützenfest Grafenau</item>
+        <item>Böblinger Straßenfest</item>
+        <item>Sindelfinger Kinoabend</item>
+    </string-array>
+
 </resources>
