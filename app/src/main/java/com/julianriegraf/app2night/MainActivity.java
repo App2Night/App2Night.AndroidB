@@ -2,8 +2,12 @@ package com.julianriegraf.app2night;
 
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
+import android.view.View;
+import android.widget.FrameLayout;
 
 
 import com.roughike.bottombar.BottomBar;
@@ -18,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
+
 
             mBottomBar = BottomBar.attach(this,savedInstanceState);
             mBottomBar.setItems(R.menu.menu_main);
@@ -61,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
             mBottomBar.mapColorForTab(0, "#81d4fa");
             mBottomBar.mapColorForTab(1, "#ce93d8");
-            mBottomBar.mapColorForTab(2, "#90caf9");
+            mBottomBar.mapColorForTab(2, "#bcaaa4");
             mBottomBar.mapColorForTab(3, "#a5d6a7");
             mBottomBar.mapColorForTab(4, "#b0bec5");
     }
