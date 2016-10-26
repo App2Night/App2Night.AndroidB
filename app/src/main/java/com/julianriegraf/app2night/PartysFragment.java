@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.julianriegraf.app2night.Models.Party;
 
 /**
  * Created by robin on 15.10.2016.
@@ -19,14 +20,7 @@ import android.widget.Toast;
 public class PartysFragment extends Fragment{
     ListView listView;
     FloatingActionButton fab;
-    int[] location_banner_ressource = {R.drawable.platzhalterbanner}; //weitere Banner dem Array hinzufügen
-    String[] Veranstaltungsname;
-    String[] Veranstaltungszeitpunkt;
-    String[] Veranstaltungsort;
-    String[] Veranstalter;
-    String[] Veranstaltungseintritt;
     PartyAdapter adapter;
-
 
     @Nullable
     @Override
@@ -43,40 +37,18 @@ public class PartysFragment extends Fragment{
                 }
             });
 
-        Veranstaltungsname = getResources().getStringArray(R.array.Veranstaltungsname);
-        Veranstaltungszeitpunkt = getResources().getStringArray(R.array.Veranstaltungszeitpunkt);
-        Veranstaltungsort = getResources().getStringArray(R.array.Veranstaltungsort);
-        Veranstalter = getResources().getStringArray(R.array.Veranstalter);
-        Veranstaltungseintritt = getResources().getStringArray(R.array.Veranstaltungseintritt);
-
-        int i = 0;
-
-        adapter = new PartyAdapter(getActivity(),R.layout.row_layout);
+        adapter = new PartyAdapter(getActivity(),R.layout.row_layout, listView);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity(), Veranstaltungsname[position]+ " selected", Toast.LENGTH_SHORT).show();
                 view.setSelected(true);
-
-
-                //Detail Information von Party's implementieren
-
-
-
+                //TODO:Detail Information von Party's implementieren
+                Party party = (Party) parent.getItemAtPosition(position);
+                Toast.makeText(parent.getContext(),party.getPartyName(), Toast.LENGTH_SHORT).show();
             }
         });
-
-        for(String name: Veranstaltungsname)
-        {
-            PartyDataProvider dataProvider = new PartyDataProvider(location_banner_ressource[0], name, Veranstaltungszeitpunkt[i], Veranstaltungsort[i], Veranstalter[i], Veranstaltungseintritt[i]);
-            adapter.add(dataProvider);
-
-            i++;
-        }
-
-
         return v;
     }
 }

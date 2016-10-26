@@ -20,65 +20,14 @@ import java.util.List;
  * Created by robin on 15.10.2016.
  */
 
-
 public class ContactFragment extends Fragment {
 
     TextView tv;
-    Button btn;
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.contact, container, false);
         tv = (TextView) v.findViewById(R.id.textView);
-        btn = (Button) v.findViewById(R.id.button);
-        btn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                new AsyncTask<Void, Void, String>() {
-
-                    @Override
-                    protected String doInBackground(Void... params) {
-                        BackendTasks bt = new BackendTasks();
-                        try {
-                            Party[] p = bt.getParties();
-                            Party a = new Party();
-                            a.setPartyName("PartyHardy!");
-                            bt.createParty(a);
-                            StringBuilder sb = new StringBuilder();
-                            for (int i = 0; i < p.length; i++) {
-                                sb.append(i + ". " + p[i].getPartId() + "\n");
-                            }
-                            return sb.toString();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        return null;
-                    }
-
-                    @Override
-                    protected void onPostExecute(String result) {
-                        if (result != null) {
-                            setText(result);
-                        } else {
-                            setText("somthing went wrong");
-                        }
-
-                    }
-
-                }.execute();
-            }
-        });
         return v;
     }
-
-
-    private void setText(String s) {
-        tv.setText(s);
-    }
-
-
 }

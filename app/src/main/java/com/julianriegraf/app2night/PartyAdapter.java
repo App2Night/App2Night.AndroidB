@@ -1,6 +1,7 @@
 package com.julianriegraf.app2night;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -8,10 +9,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 
+import com.julianriegraf.app2night.BackendConnection.BackendTasks;
+import com.julianriegraf.app2night.Models.Party;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -20,15 +27,41 @@ import java.util.List;
 
 public class PartyAdapter extends ArrayAdapter {
 
-    List list = new ArrayList();
+    private final LayoutInflater inflator;
+    List<Party> partyList;
+    ListView listview;
 
-
-    public PartyAdapter(Context context, int resource) {
+    public PartyAdapter(Context context, int resource, ListView listview) {
         super(context, resource);
+        this.listview = listview;
+        inflator = LayoutInflater.from(context);
+        partyList = new ArrayList<Party>();
+        refresh();
     }
 
-    static class DataHandler
-    {
+    public void refresh() {
+        partyList.clear();
+        new AsyncTask<List<Party>, Void, Void>() {
+
+            @Override
+            protected Void doInBackground(List<Party>... params) {
+                Party[] parties = new BackendTasks().getParties();
+                params[0].addAll(Arrays.asList(parties));
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                refreshHelper();
+            }
+        }.execute(partyList);
+    }
+
+    private void refreshHelper() {
+        this.notifyDataSetChanged();
+    }
+
+    static class DataHandler {
         ImageView Banner;
         TextView name;
         TextView zeitpunkt;
@@ -40,53 +73,67 @@ public class PartyAdapter extends ArrayAdapter {
     @Override
     public void add(Object object) {
         super.add(object);
-        list.add(object);
+        partyList.add((Party) object);
     }
 
     @Override
     public int getCount() {
-        return this.list.size();
+        return this.partyList.size();
     }
 
     @Nullable
     @Override
     public Object getItem(int position) {
-        return this.list.get(position);
+        return this.partyList.get(position);
     }
 
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View row;
-        row = convertView;
         DataHandler handler;
 
-        if (convertView == null)
-        {
-            LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            row = inflater.inflate(R.layout.row_layout, parent, false);
+        if (convertView == null) {
+            convertView = inflator.inflate(R.layout.row_layout, parent, false);
             handler = new DataHandler();
-            handler.Banner = (ImageView) row.findViewById(R.id.banner);
-            handler.name = (TextView) row.findViewById(R.id.veranstaltungsname);
-            handler.zeitpunkt = (TextView) row.findViewById(R.id.datum);
-            handler.ort = (TextView) row.findViewById(R.id.ort);
-            handler.veranstalter = (TextView) row.findViewById(R.id.veranstalter);
-            handler.eintritt = (TextView) row.findViewById(R.id.preis);
-            row.setTag(handler);
-        }else
-        {
-            handler = (DataHandler) row.getTag();
+            handler.Banner = (ImageView) convertView.findViewById(R.id.banner);
+            handler.name = (TextView) convertView.findViewById(R.id.veranstaltungsname);
+            handler.zeitpunkt = (TextView) convertView.findViewById(R.id.datum);
+            handler.ort = (TextView) convertView.findViewById(R.id.ort);
+            handler.veranstalter = (TextView) convertView.findViewById(R.id.veranstalter);
+            handler.eintritt = (TextView) convertView.findViewById(R.id.preis);
+            convertView.setTag(handler);
+        } else {
+            handler = (DataHandler) convertView.getTag();
         }
 
-        PartyDataProvider dataProvider;
-        dataProvider = (PartyDataProvider) this.getItem(position);
-        handler.Banner.setImageResource(dataProvider.getParty_banner_resource());
-        handler.name.setText(dataProvider.getVeranstaltungsname());
-        handler.eintritt.setText(dataProvider.getVeranstaltungseintritt());
-        handler.veranstalter.setText(dataProvider.getVeranstalter());
-        handler.zeitpunkt.setText(dataProvider.getVeranstaltungszeitpunkt());
-        handler.ort.setText(dataProvider.getVeranstaltungsort());
-
-        return row;
+        Context context = parent.getContext();
+        Party party = (Party) getItem(position);
+        handler.Banner.setImageResource(R.drawable.platzhalterbanner);
+        try {
+            handler.name.setText(party.getPartyName());
+        } catch (Exception e) {
+            handler.name.setText("not found");
+        }
+        try {
+            handler.eintritt.setText(party.getPrice());
+        } catch (Exception e) {
+            handler.eintritt.setText("not found");
+        }
+        try {
+            handler.veranstalter.setText(party.getHost().getUsernamen());
+        } catch (Exception e) {
+            handler.veranstalter.setText("not found");
+        }
+        try {
+            handler.zeitpunkt.setText(party.getPartyDate());
+        } catch (Exception e) {
+            handler.zeitpunkt.setText("not found");
+        }
+        try {
+            handler.ort.setText(party.getLocation().getCityName());
+        } catch (Exception e) {
+            handler.ort.setText("not found");
+        }
+        return convertView;
     }
 }
