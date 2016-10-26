@@ -9,11 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.julianriegraf.app2night.BackendConnection.BackendConnector;
 import com.julianriegraf.app2night.BackendConnection.BackendTasks;
 import com.julianriegraf.app2night.Models.Party;
+
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by robin on 15.10.2016.
@@ -37,13 +38,21 @@ public class ContactFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                new AsyncTask<Void, Void, Party>() {
+                new AsyncTask<Void, Void, String>() {
 
                     @Override
-                    protected Party doInBackground(Void... params) {
+                    protected String doInBackground(Void... params) {
                         BackendTasks bt = new BackendTasks();
                         try {
-                            return bt.getParty("50db0c93-b3f0-463c-e9b7-08d3fcc1f196");
+                            Party[] p = bt.getParties();
+                            Party a = new Party();
+                            a.setPartyName("PartyHardy!");
+                            bt.createParty(a);
+                            StringBuilder sb = new StringBuilder();
+                            for (int i = 0; i < p.length; i++) {
+                                sb.append(i + ". " + p[i].getPartId() + "\n");
+                            }
+                            return sb.toString();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -51,9 +60,11 @@ public class ContactFragment extends Fragment {
                     }
 
                     @Override
-                    protected void onPostExecute(Party result) {
-                        if(result != null){
-                            setText(result.getName());
+                    protected void onPostExecute(String result) {
+                        if (result != null) {
+                            setText(result);
+                        } else {
+                            setText("somthing went wrong");
                         }
 
                     }

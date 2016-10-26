@@ -150,7 +150,7 @@ public class BackendConnector {
     }
 
 
-    public String runHttpPut(String json, int response, String URL, String parameters) {
+    public int runHttpPut(String json, int response, String URL, String parameters) {
 
         StringBuilder sb = new StringBuilder();
         HttpURLConnection httpURLConnection = null;
@@ -175,22 +175,8 @@ public class BackendConnector {
             httpURLConnection.getOutputStream().write(data);
             httpURLConnection.getOutputStream().flush();
 
-            int responseCode = httpURLConnection.getResponseCode();
-            if (responseCode == response) {
-                InputStreamReader inputStreamReader = new InputStreamReader(httpURLConnection.getInputStream());
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                int i;
-                while ((i = bufferedReader.read()) != -1) {
-                    sb.append((char) i);
-                }
-                try {
-                    bufferedReader.close();
-                } catch (IOException e) {
-                    // ein Fehler beim Schließen wird bewusst ignoriert
-                }
-            } else {
-                return "failed;" + responseCode;
-            }
+            return httpURLConnection.getResponseCode();
+
         } catch (Throwable tr) { // MalformedURLException, IOException,
             // NullPointerException,
             // UnsupportedEncodingException
@@ -199,6 +185,6 @@ public class BackendConnector {
                 httpURLConnection.disconnect();
             }
         }
-        return sb.toString().trim();
+        return -1;
     }
 }
