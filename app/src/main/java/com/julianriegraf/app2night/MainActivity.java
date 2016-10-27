@@ -3,6 +3,8 @@ package com.julianriegraf.app2night;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 
@@ -21,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
 
-
             mBottomBar = BottomBar.attach(this,savedInstanceState);
+            mBottomBar.noTopOffset();
             mBottomBar.setItems(R.menu.menu_main);
             mBottomBar.setOnMenuTabClickListener(new OnMenuTabClickListener()
             {
