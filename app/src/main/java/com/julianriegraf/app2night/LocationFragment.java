@@ -1,6 +1,7 @@
 package com.julianriegraf.app2night;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,6 +20,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.julianriegraf.app2night.GPS.GPSAccess;
 
 
 /**
@@ -29,16 +31,18 @@ public class LocationFragment extends Fragment{
 
     MapView mMapView;
     private GoogleMap googleMap;
+    GPSAccess GPS;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.location, container, false);
-
         mMapView = (MapView) rootView.findViewById(R.id.mapView);
         mMapView.onCreate(savedInstanceState);
-
         mMapView.onResume(); // needed to get the map to display immediately
+
+        GPS = new GPSAccess(getActivity(), this);
+        GPS.setPosition();
 
         try {
             MapsInitializer.initialize(getActivity().getApplicationContext());
@@ -56,7 +60,8 @@ public class LocationFragment extends Fragment{
                 //googleMap.setMyLocationEnabled(true); //TODO: Fixen von setMyLocationEnabled
 
                 // For dropping a marker at a point on the Map
-                LatLng sydney = new LatLng(-34, 151);
+
+                LatLng sydney = new LatLng(GPS.getLatitude(), GPS.getLongitude());
                 googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker Title").snippet("Marker Description"));
 
                 // For zooming automatically to the location of the marker

@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
 
             mBottomBar = BottomBar.attach(this,savedInstanceState);
-            mBottomBar.noTopOffset();
             mBottomBar.setItems(R.menu.menu_main);
             mBottomBar.setOnMenuTabClickListener(new OnMenuTabClickListener()
             {
