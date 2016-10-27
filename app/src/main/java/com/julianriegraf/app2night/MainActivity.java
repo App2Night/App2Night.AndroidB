@@ -2,12 +2,10 @@ package com.julianriegraf.app2night;
 
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
+
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
-import android.view.View;
-import android.widget.FrameLayout;
+
 
 
 import com.roughike.bottombar.BottomBar;

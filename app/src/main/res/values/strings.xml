@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">App2Night</string>
     <string name="Partys">Partys</string>
+    <string name="google_maps_key">AIzaSyAkl3QTu2Cj28FXqttsrXom2HeAGkwR6Lg</string>
     <string name="Standort">Standort</string>
     <string name="Account">Account</string>
     <string name="Einstellungen">Einstellungen</string>
