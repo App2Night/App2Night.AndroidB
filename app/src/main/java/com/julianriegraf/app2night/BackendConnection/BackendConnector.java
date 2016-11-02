@@ -17,32 +17,40 @@ import java.nio.charset.Charset;
 
 public class BackendConnector {
 
+    private String token;
+
+    public void setToken(String token){
+        this.token = token;
+    }
+
     /**
      * Sendet einen Request zum Server und returnt die Antwort.
      */
-    public String runHttpPost(String json, int response, String URL) {
+    public String runHttpPost(String json, int response, String URL, String contentType) {
 
         StringBuilder sb = new StringBuilder();
-        HttpURLConnection httpURLConnection = null;
+        HttpURLConnection connection = null;
         try {
             java.net.URL url = new URL(URL);
-            httpURLConnection = (HttpURLConnection) url.openConnection();
+            connection = (HttpURLConnection) url.openConnection();
 
             // Verbindung konfigurieren
-            httpURLConnection.setDoInput(true);
-
-            httpURLConnection.setRequestMethod("POST");
+            connection.setDoInput(true);
+            if(token != null){
+                connection.setRequestProperty("Authorization", "Bearer " + token);
+            }
+            connection.setRequestMethod("POST");
             byte[] data = json.getBytes();
-            httpURLConnection.setRequestProperty("Content-Type", "application/json; charset=" + Charset.defaultCharset().name());
-            httpURLConnection.setFixedLengthStreamingMode(data.length);
+            connection.setRequestProperty("Content-Type", contentType + "; charset=" + Charset.defaultCharset().name());
+            connection.setFixedLengthStreamingMode(data.length);
 
             // Daten senden
-            httpURLConnection.getOutputStream().write(data);
-            httpURLConnection.getOutputStream().flush();
+            connection.getOutputStream().write(data);
+            connection.getOutputStream().flush();
 
-            int responseCode = httpURLConnection.getResponseCode();
+            int responseCode = connection.getResponseCode();
             if (responseCode == response) {
-                InputStreamReader inputStreamReader = new InputStreamReader(httpURLConnection.getInputStream());
+                InputStreamReader inputStreamReader = new InputStreamReader(connection.getInputStream());
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
                 int i;
                 while ((i = bufferedReader.read()) != -1) {
@@ -60,8 +68,8 @@ public class BackendConnector {
             // NullPointerException,
             // UnsupportedEncodingException
         } finally {
-            if (httpURLConnection != null) {
-                httpURLConnection.disconnect();
+            if (connection != null) {
+                connection.disconnect();
             }
         }
         return sb.toString().trim();
@@ -70,7 +78,7 @@ public class BackendConnector {
     public String runHttpGet(int response, String URL, String parameters) {
 
         StringBuilder sb = new StringBuilder();
-        HttpURLConnection httpURLConnection = null;
+        HttpURLConnection connection = null;
         try {
             java.net.URL url;
             if (parameters != null) {
@@ -79,17 +87,19 @@ public class BackendConnector {
                 url = new URL(URL);
             }
 
-            httpURLConnection = (HttpURLConnection) url.openConnection();
+            connection = (HttpURLConnection) url.openConnection();
 
             // Verbindung konfigurieren
-            httpURLConnection.setDoInput(true);
+            connection.setDoInput(true);
+            if(token != null){
+                connection.setRequestProperty("Authorization", "Bearer " + token);
+            }
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("Content-Type", "application/json; charset=" + Charset.defaultCharset().name());
 
-            httpURLConnection.setRequestMethod("GET");
-            httpURLConnection.setRequestProperty("Content-Type", "application/json; charset=" + Charset.defaultCharset().name());
-
-            int responseCode = httpURLConnection.getResponseCode();
+            int responseCode = connection.getResponseCode();
             if (responseCode == response) {
-                InputStreamReader inputStreamReader = new InputStreamReader(httpURLConnection.getInputStream());
+                InputStreamReader inputStreamReader = new InputStreamReader(connection.getInputStream());
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
                 int i;
                 while ((i = bufferedReader.read()) != -1) {
@@ -107,8 +117,8 @@ public class BackendConnector {
             // NullPointerException,
             // UnsupportedEncodingException
         } finally {
-            if (httpURLConnection != null) {
-                httpURLConnection.disconnect();
+            if (connection != null) {
+                connection.disconnect();
             }
         }
 
@@ -119,7 +129,7 @@ public class BackendConnector {
     public int runHttpDelete(String URL, String parameters) {
 
         StringBuilder sb = new StringBuilder();
-        HttpURLConnection httpURLConnection = null;
+        HttpURLConnection connection = null;
         try {
             java.net.URL url;
             if (parameters != null) {
@@ -128,22 +138,24 @@ public class BackendConnector {
                 url = new URL(URL);
             }
 
-            httpURLConnection = (HttpURLConnection) url.openConnection();
+            connection = (HttpURLConnection) url.openConnection();
 
             // Verbindung konfigurieren
-            httpURLConnection.setDoInput(true);
+            connection.setDoInput(true);
+            if(token != null){
+                connection.setRequestProperty("Authorization", "Bearer " + token);
+            }
+            connection.setRequestMethod("DELETE");
+            connection.setRequestProperty("Content-Type", "application/json; charset=" + Charset.defaultCharset().name());
 
-            httpURLConnection.setRequestMethod("DELETE");
-            httpURLConnection.setRequestProperty("Content-Type", "application/json; charset=" + Charset.defaultCharset().name());
-
-            return httpURLConnection.getResponseCode();
+            return connection.getResponseCode();
 
         } catch (Throwable tr) { // MalformedURLException, IOException,
             // NullPointerException,
             // UnsupportedEncodingException
         } finally {
-            if (httpURLConnection != null) {
-                httpURLConnection.disconnect();
+            if (connection != null) {
+                connection.disconnect();
             }
         }
         return -1;
@@ -153,7 +165,7 @@ public class BackendConnector {
     public int runHttpPut(String json, int response, String URL, String parameters) {
 
         StringBuilder sb = new StringBuilder();
-        HttpURLConnection httpURLConnection = null;
+        HttpURLConnection connection = null;
         try {
             java.net.URL url;
             if (parameters != null) {
@@ -161,28 +173,30 @@ public class BackendConnector {
             } else {
                 url = new URL(URL);
             }
-            httpURLConnection = (HttpURLConnection) url.openConnection();
+            connection = (HttpURLConnection) url.openConnection();
 
-            // Verbindung konfigurieren
-            httpURLConnection.setDoInput(true);
+            if(token != null){
+                connection.setRequestProperty("Authorization", "Bearer " + token);
+            }
+            connection.setDoInput(true);
 
-            httpURLConnection.setRequestMethod("PUT");
+            connection.setRequestMethod("PUT");
             byte[] data = json.getBytes();
-            httpURLConnection.setRequestProperty("Content-Type", "application/json; charset=" + Charset.defaultCharset().name());
-            httpURLConnection.setFixedLengthStreamingMode(data.length);
+            connection.setRequestProperty("Content-Type", "application/json; charset=" + Charset.defaultCharset().name());
+            connection.setFixedLengthStreamingMode(data.length);
 
             // Daten senden
-            httpURLConnection.getOutputStream().write(data);
-            httpURLConnection.getOutputStream().flush();
+            connection.getOutputStream().write(data);
+            connection.getOutputStream().flush();
 
-            return httpURLConnection.getResponseCode();
+            return connection.getResponseCode();
 
         } catch (Throwable tr) { // MalformedURLException, IOException,
             // NullPointerException,
             // UnsupportedEncodingException
         } finally {
-            if (httpURLConnection != null) {
-                httpURLConnection.disconnect();
+            if (connection != null) {
+                connection.disconnect();
             }
         }
         return -1;

@@ -5,33 +5,24 @@ package com.julianriegraf.app2night.Models;
  */
 
 public class User {
-    public String getPassword() {
-        return password;
+
+    public String getUserName() {
+        return UserName;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUserName(String Username) {
+        this.UserName = Username;
     }
 
-    public String getUsernamen() {
-        return usernamen;
+
+    public String getHostId() {
+        return HostId;
     }
 
-    public void setUsernamen(String usernamen) {
-        this.usernamen = usernamen;
+    public void setHostId(String UserId) {
+        this.HostId = UserId;
     }
 
-    private String password;
-    private String usernamen;
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    private String userId;
-
+    private String HostId;
+    private String UserName;
 }

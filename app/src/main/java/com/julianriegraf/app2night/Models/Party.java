@@ -6,101 +6,87 @@ package com.julianriegraf.app2night.Models;
 
 public class Party {
 
-    // FIELDS
-    private String partyName;
-    private String hostId;
-    private String partyDate;
-    private User host;
-    private int price;
-    private int musicGenre;
-    private PartyLocation location;
-    private int partyType;
-    private String description;
-
-
-    // GETTER AND SETTER
     public String getPartId() {
-        return partId;
+        return PartId;
     }
 
     public void setPartId(String partId) {
-        this.partId = partId;
+        PartId = partId;
     }
 
     public String getPartyName() {
-        return partyName;
+        return PartyName;
     }
 
     public void setPartyName(String partyName) {
-        this.partyName = partyName;
-    }
-
-    public String getHostId() {
-        return hostId;
-    }
-
-    public void setHostId(String hostId) {
-        this.hostId = hostId;
-    }
-
-    public String getPartyDate() {
-        return partyDate;
-    }
-
-    public void setPartyDate(String partyDate) {
-        this.partyDate = partyDate;
-    }
-
-    public User getHost() {
-        return host;
-    }
-
-    public void setHost(User host) {
-        this.host = host;
+        PartyName = partyName;
     }
 
     public int getPrice() {
-        return price;
+        return Price;
     }
 
     public void setPrice(int price) {
-        this.price = price;
+        Price = price;
     }
 
-    public int getMusicGenre() {
-        return musicGenre;
+    public String getPartyDate() {
+        return PartyDate;
     }
 
-    public void setMusicGenre(int musicGenre) {
-        this.musicGenre = musicGenre;
+    public void setPartyDate(String partyDate) {
+        PartyDate = partyDate;
     }
 
     public PartyLocation getLocation() {
-        return location;
+        return Location;
     }
 
     public void setLocation(PartyLocation location) {
-        this.location = location;
+        Location = location;
+    }
+
+    public int getMusicGenre() {
+        return MusicGenre;
+    }
+
+    public void setMusicGenre(int musicGenre) {
+        MusicGenre = musicGenre;
     }
 
     public int getPartyType() {
-        return partyType;
+        return PartyType;
     }
 
     public void setPartyType(int partyType) {
-        this.partyType = partyType;
+        PartyType = partyType;
     }
 
     public String getDescription() {
-        return description;
+        return Description;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        Description = description;
     }
 
-    private String partId;
+    public User getHost() {
+        return Host;
+    }
 
+    public void setHost(User host) {
+        Host = host;
+    }
+
+    private String PartId;
+    private String PartyName;
+    private int Price;
+    private String PartyDate;
+    private PartyLocation Location;
+    private int MusicGenre;
+    private int PartyType;
+    private String Description;
+    private User Host;
 
     public Party() {
 

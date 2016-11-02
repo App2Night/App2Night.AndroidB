@@ -6,77 +6,77 @@ package com.julianriegraf.app2night.Models;
 
 public class PartyLocation {
 
-    private String countryName;
-    private String cityName;
-    private String streetName;
-    private int houseNumber;
-    private String houseNumberAdditional;
-    private int zipcode;
-    private int latitude;
-    private int longitude;
+    private String CountyName;
+    private String CityName;
+    private String StreetName;
+    private int HouseNumber;
+    private String HouseNumberAdditional;
+    private int Zipcode;
+    private int Latitude;
+    private int Longitude;
 
-    public String getCountryName() {
-        return countryName;
+    public String getCountyName() {
+        return CountyName;
     }
 
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
+    public void setCountyName(String countyName) {
+        this.CountyName = countyName;
     }
 
     public String getCityName() {
-        return cityName;
+        return CityName;
     }
 
     public void setCityName(String cityName) {
-        this.cityName = cityName;
+        this.CityName = cityName;
     }
 
     public String getStreetName() {
-        return streetName;
+        return StreetName;
     }
 
     public void setStreetName(String streetName) {
-        this.streetName = streetName;
+        this.StreetName = streetName;
     }
 
     public int getHouseNumber() {
-        return houseNumber;
+        return HouseNumber;
     }
 
     public void setHouseNumber(int houseNumber) {
-        this.houseNumber = houseNumber;
+        this.HouseNumber = houseNumber;
     }
 
     public String getHouseNumberAdditional() {
-        return houseNumberAdditional;
+        return HouseNumberAdditional;
     }
 
     public void setHouseNumberAdditional(String houseNumberAdditional) {
-        this.houseNumberAdditional = houseNumberAdditional;
+        this.HouseNumberAdditional = houseNumberAdditional;
     }
 
     public int getZipcode() {
-        return zipcode;
+        return Zipcode;
     }
 
     public void setZipcode(int zipcode) {
-        this.zipcode = zipcode;
+        this.Zipcode = zipcode;
     }
 
     public int getLatitude() {
-        return latitude;
+        return Latitude;
     }
 
     public void setLatitude(int latitude) {
-        this.latitude = latitude;
+        this.Latitude = latitude;
     }
 
     public int getLongitude() {
-        return longitude;
+        return Longitude;
     }
 
     public void setLongitude(int longitude) {
-        this.longitude = longitude;
+        this.Longitude = longitude;
     }
 
 

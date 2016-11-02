@@ -15,6 +15,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 
 import com.julianriegraf.app2night.ContactFragment;
+import com.julianriegraf.app2night.LocationFragment;
 
 /**
  * Created by Julian Riegraf on 27.10.2016.
@@ -32,6 +33,7 @@ public class GPSAccess extends Service implements LocationListener {
     public GPSAccess(Context context, Fragment cf) {
         this.c = context;
         this.fragment = cf;
+        setPosition();
     }
 
     @Nullable
@@ -43,6 +45,8 @@ public class GPSAccess extends Service implements LocationListener {
     @Override
     public void onLocationChanged(Location location) {
         position = location;
+        LocationFragment locFrag = (LocationFragment) fragment;
+        locFrag.updateMapView();
     }
 
     @Override
@@ -52,7 +56,7 @@ public class GPSAccess extends Service implements LocationListener {
 
     @Override
     public void onProviderEnabled(String provider) {
-
+        setPosition();
     }
 
     @Override

@@ -16,9 +16,11 @@ import android.widget.TextView;
 import com.julianriegraf.app2night.BackendConnection.BackendTasks;
 import com.julianriegraf.app2night.Models.Party;
 
-import java.lang.reflect.Array;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -46,7 +48,12 @@ public class PartyAdapter extends ArrayAdapter {
             @Override
             protected Void doInBackground(List<Party>... params) {
                 Party[] parties = new BackendTasks().getParties();
-                params[0].addAll(Arrays.asList(parties));
+                try {
+                    params[0].addAll(Arrays.asList(parties));
+                } catch (Exception e) {
+
+                }
+
                 return null;
             }
 
@@ -120,7 +127,7 @@ public class PartyAdapter extends ArrayAdapter {
             handler.eintritt.setText("not found");
         }
         try {
-            handler.veranstalter.setText(party.getHost().getUsernamen());
+            handler.veranstalter.setText(party.getHost().getUserName());
         } catch (Exception e) {
             handler.veranstalter.setText("not found");
         }
