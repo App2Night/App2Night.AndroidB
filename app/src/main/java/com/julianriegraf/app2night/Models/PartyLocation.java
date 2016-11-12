@@ -12,8 +12,8 @@ public class PartyLocation {
     private int HouseNumber;
     private String HouseNumberAdditional;
     private int Zipcode;
-    private int Latitude;
-    private int Longitude;
+    private double Latitude;
+    private double Longitude;
 
     public String getCountyName() {
         return CountyName;
@@ -63,7 +63,7 @@ public class PartyLocation {
         this.Zipcode = zipcode;
     }
 
-    public int getLatitude() {
+    public double getLatitude() {
         return Latitude;
     }
 
@@ -71,7 +71,7 @@ public class PartyLocation {
         this.Latitude = latitude;
     }
 
-    public int getLongitude() {
+    public double getLongitude() {
         return Longitude;
     }
 
