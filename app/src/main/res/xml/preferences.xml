@@ -12,11 +12,11 @@
             android:defaultValue="true"
             ></CheckBoxPreference>
 
-        <CheckBoxPreference
+        <SwitchPreferenceCompat
         android:title="WLAN"
         android:key="wlan_preference"
         android:summary="Enables the WLAN usage"
-        android:defaultValue="true"></CheckBoxPreference>
+        android:defaultValue="true"></SwitchPreferenceCompat>
 
         <CheckBoxPreference
             android:title="Benachrichtigungen"
