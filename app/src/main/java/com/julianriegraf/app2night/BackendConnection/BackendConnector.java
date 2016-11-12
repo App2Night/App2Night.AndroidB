@@ -18,8 +18,21 @@ import java.nio.charset.Charset;
 public class BackendConnector {
 
     private String token;
+    private static BackendConnector instance;
 
-    public void setToken(String token){
+    private BackendConnector() {
+
+    }
+
+    public static BackendConnector getInstance(){
+        if (instance == null) {
+            return instance = new BackendConnector();
+        }else{
+            return instance;
+        }
+    }
+
+    public void setToken(String token) {
         this.token = token;
     }
 
@@ -36,7 +49,7 @@ public class BackendConnector {
 
             // Verbindung konfigurieren
             connection.setDoInput(true);
-            if(token != null){
+            if (token != null) {
                 connection.setRequestProperty("Authorization", "Bearer " + token);
             }
             connection.setRequestMethod("POST");
@@ -91,7 +104,7 @@ public class BackendConnector {
 
             // Verbindung konfigurieren
             connection.setDoInput(true);
-            if(token != null){
+            if (token != null) {
                 connection.setRequestProperty("Authorization", "Bearer " + token);
             }
             connection.setRequestMethod("GET");
@@ -142,7 +155,7 @@ public class BackendConnector {
 
             // Verbindung konfigurieren
             connection.setDoInput(true);
-            if(token != null){
+            if (token != null) {
                 connection.setRequestProperty("Authorization", "Bearer " + token);
             }
             connection.setRequestMethod("DELETE");
@@ -175,7 +188,7 @@ public class BackendConnector {
             }
             connection = (HttpURLConnection) url.openConnection();
 
-            if(token != null){
+            if (token != null) {
                 connection.setRequestProperty("Authorization", "Bearer " + token);
             }
             connection.setDoInput(true);

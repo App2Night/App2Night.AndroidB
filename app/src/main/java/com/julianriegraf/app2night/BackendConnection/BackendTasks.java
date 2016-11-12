@@ -19,7 +19,7 @@ public class BackendTasks {
     private static String CONNECTION_TYPE_JSON = "application/json";
     private static String CONNECTION_TYPE_URL = "application/x-www-form-urlencoded";
 
-    BackendConnector bc = new BackendConnector();
+    BackendConnector bc = BackendConnector.getInstance();
 
     public void setToken(String token) {
         bc.setToken(token);
