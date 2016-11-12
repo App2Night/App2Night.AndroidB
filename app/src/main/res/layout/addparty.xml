@@ -1,12 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:background="#e0e0e0"
+    android:fillViewport="true"
+    >
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <TextView
-        android:text="Das ist addParty"
+        android:text="Party Name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:textAlignment="center" />
-</LinearLayout>
+        android:id="@+id/party_name_label"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:paddingBottom="10dp"
+        android:paddingTop="15dp"
+
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:inputType="text"
+        android:ems="10"
+        android:layout_below="@id/party_name_label"
+        android:id="@+id/party_name"
+        android:hint="Hier den Party Name eingeben."
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:background="#FFFFFF"
+        />
+
+    <TextView
+        android:text="Party Location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/party_location_label"
+        android:layout_below="@id/party_name"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:paddingBottom="10dp"
+        android:paddingTop="15dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/party_location"
+        android:layout_below="@id/party_location_label"
+        android:hint="Hier die Location eingeben."
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:background="#FFFFFF"
+        />
+
+    <TextView
+        android:text="Party Datum"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/party_datum_label"
+        android:layout_below="@id/party_location"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:paddingBottom="10dp"
+        android:paddingTop="15dp"/>
+
+    <EditText
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/party_date"
+        android:layout_below="@id/party_datum_label"
+        android:hint="Hier das Datum eingeben."
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:background="#FFFFFF"/>
+
+    <EditText
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:inputType="time"
+        android:ems="10"
+        android:id="@+id/party_time"
+        android:layout_below = "@id/party_datum_label"
+        android:layout_toRightOf="@id/party_date"
+        android:layout_marginLeft="30dp"
+        android:hint="Hier die Zeit eingeben."
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:background="#FFFFFF"/>
+
+    <TextView
+        android:text="Party Zeit"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/party_zeit_label"
+        android:layout_above="@id/party_time"
+        android:layout_toRightOf="@id/party_datum_label"
+        android:layout_marginLeft="30dp"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="15dp"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text="Party Eintritt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/party_eintritt_label"
+        android:layout_below="@id/party_date"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:paddingBottom="10dp"
+        android:paddingTop="15dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/party_price"
+        android:layout_below="@id/party_eintritt_label"
+        android:hint="Hier den Eintritt eingeben"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:background="#FFFFFF"/>
+
+    <TextView
+        android:text="Party Musik"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/party_music_label"
+        android:layout_below="@id/party_price"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:paddingBottom="10dp"
+        android:paddingTop="15dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:inputType="textAutoComplete"
+        android:ems="10"
+        android:layout_below="@id/party_music_label"
+        android:id="@+id/party_music"
+        android:hint="Hier die Musikrichtung eingeben"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:background="#FFFFFF" />
+
+    <TextView
+        android:text="Party Veranstalter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/party_veranstalter_label"
+        android:textStyle="normal|bold"
+        android:layout_below="@id/party_music"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:paddingBottom="10dp"
+        android:paddingTop="15dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:inputType="text"
+        android:ems="10"
+        android:id="@+id/party_veranstalter"
+        android:layout_below="@id/party_veranstalter_label"
+        android:hint="Hier den Veranstalter eingeben"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:background="#FFFFFF" />
+
+        <TextView
+            android:text="Beschreibung"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/beschreibung_label"
+            android:textStyle="normal|bold"
+            android:layout_below="@id/party_veranstalter"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:paddingBottom="10dp"
+            android:paddingTop="15dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:inputType="text"
+            android:ems="10"
+            android:id="@+id/party_beschreibung"
+            android:layout_below="@id/beschreibung_label"
+            android:hint="Hier Beschreibung eingeben"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:background="#FFFFFF" />
+
+    <Button
+        android:text="Einreichen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/party_beschreibung"
+        android:id="@+id/einreichen"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+</ScrollView>
+
