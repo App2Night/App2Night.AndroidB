@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="10dp"
@@ -132,7 +133,7 @@
             android:inputType="number"
             android:ems="10"
             android:id="@+id/party_price"
-            android:hint="Hier den Eintritt eingeben"
+            android:hint="Hier den Eintritt in € eingeben"
             android:textSize="14sp"
             android:textAlignment="center"
             android:background="#FFFFFF"
@@ -163,19 +164,20 @@
         android:textAlignment="center"
         android:background="#FFFFFF" />
 
-    <TextView
-        android:text="Party Veranstalter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/party_veranstalter_label"
-        android:textStyle="normal|bold"
-        android:layout_below="@id/party_music"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:paddingBottom="10dp"
-        android:paddingTop="15dp"/>
+        <TextView
+            android:text="Party Veranstalter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/party_veranstalter_label"
+            android:textStyle="normal|bold"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:paddingBottom="10dp"
+            android:paddingTop="15dp"
+            android:layout_below="@+id/party_music"
+            android:layout_alignParentStart="true" />
 
-    <EditText
+        <EditText
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:inputType="text"
@@ -219,6 +221,22 @@
         android:id="@+id/einreichen"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true" />
+
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_place_new"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@id/party_location_label"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:paddingRight="5dp"
+            android:layout_alignTop="@id/party_location_label"
+            android:scaleType="centerCrop"
+            android:id="@+id/location_view" />
+
 
 
 

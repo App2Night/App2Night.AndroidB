@@ -10,7 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 /**
  * Created by robin on 24.10.2016.
@@ -20,6 +22,8 @@ public class AddPartyFragment extends Fragment {
 
     Button pickDate ;
     Button pickTime;
+    Button einreichen;
+    ImageView location;
 
     @Nullable
     @Override
@@ -41,6 +45,24 @@ public class AddPartyFragment extends Fragment {
             public void onClick(View view) {
                 DialogFragment timePicker = new TimePickerFragment();
                 timePicker.show(getFragmentManager(),"TimePicker");
+            }
+        });
+
+        einreichen = (Button) v.findViewById(R.id.einreichen);
+        einreichen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO: Implementieren des Einreichens
+            }
+        });
+
+        location = (ImageView) v.findViewById(R.id.location_view);
+        location.setClickable(true);
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(),"Die Location ist der derzeitige Aufenthaltsort", Toast.LENGTH_LONG).show();
+                //TODO: Implementieren des automatischen Ausfüllens des Textfeldes aufgrund der derzeitigen GPS Location
             }
         });
         return v;
