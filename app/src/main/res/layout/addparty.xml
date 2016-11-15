@@ -74,30 +74,30 @@
         android:paddingBottom="10dp"
         android:paddingTop="15dp"/>
 
-    <EditText
+    <Button
+        android:text="Klicken um Datum zu wählen"
+        android:textAlignment="center"
         android:layout_width="170dp"
         android:layout_height="30dp"
-        android:inputType="date"
         android:ems="10"
         android:id="@+id/party_date"
         android:layout_below="@id/party_datum_label"
-        android:hint="Hier das Datum eingeben."
-        android:textSize="14sp"
-        android:textAlignment="center"
-        android:background="#FFFFFF"/>
+        android:background="#FFFFFF"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textSize="12sp" />
 
-    <EditText
+    <Button
+        android:text="Klicken um Zeit zu wählen"
         android:layout_width="170dp"
         android:layout_height="30dp"
-        android:inputType="time"
         android:ems="10"
         android:id="@+id/party_time"
         android:layout_below = "@id/party_datum_label"
         android:layout_toRightOf="@id/party_date"
         android:layout_marginLeft="30dp"
-        android:hint="Hier die Zeit eingeben."
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:textAlignment="center"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
         android:background="#FFFFFF"/>
 
     <TextView
@@ -126,19 +126,20 @@
         android:paddingBottom="10dp"
         android:paddingTop="15dp"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/party_price"
-        android:layout_below="@id/party_eintritt_label"
-        android:hint="Hier den Eintritt eingeben"
-        android:textSize="14sp"
-        android:textAlignment="center"
-        android:background="#FFFFFF"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/party_price"
+            android:hint="Hier den Eintritt eingeben"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:background="#FFFFFF"
+            android:layout_below="@+id/party_eintritt_label"
+            android:layout_alignParentStart="true" />
 
-    <TextView
+        <TextView
         android:text="Party Musik"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -218,6 +219,8 @@
         android:id="@+id/einreichen"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true" />
+
+
 
     </RelativeLayout>
 </ScrollView>
