@@ -12,6 +12,50 @@
     <string name="wann">Wann?</string>
     <string name="wieviel">Wie Viel?</string>
 
+    <string-array name="Musikrichtungen">
+        <item>Musikrichtung wählen</item>
+        <item>Blues</item>
+        <item>Charts</item>
+        <item>Dance</item>
+        <item>Hardrock</item>
+        <item>Heavy Metal</item>
+        <item>HipHop</item>
+        <item>House</item>
+        <item>Jazz</item>
+        <item>Klassik</item>
+        <item>Oldies</item>
+        <item>Pop</item>
+        <item>Rap</item>
+        <item>Rock</item>
+        <item>Schlager</item>
+        <item>Techno</item>
+        <item>Volksmusik</item>
+    </string-array>
+
+    <string-array name="EuroBeträge">
+        <item>Eintritt wählen</item>
+        <item>1€</item>
+        <item>2€</item>
+        <item>3€</item>
+        <item>4€</item>
+        <item>5€</item>
+        <item>6€</item>
+        <item>7€</item>
+        <item>8€</item>
+        <item>9€</item>
+        <item>10€</item>
+        <item>11€</item>
+        <item>12€</item>
+        <item>13€</item>
+        <item>14€</item>
+        <item>15€</item>
+        <item>16€</item>
+        <item>17€</item>
+        <item>18€</item>
+        <item>19€</item>
+        <item>20€</item>
+    </string-array>
+
     <string-array name="Veranstaltungsort">
         <item>Darmsheim, Dätzinger Straße 110</item>
         <item>Grafenau, Döffinger Straße 20</item>

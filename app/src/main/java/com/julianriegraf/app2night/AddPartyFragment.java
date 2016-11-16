@@ -9,6 +9,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -24,6 +26,11 @@ public class AddPartyFragment extends Fragment {
     Button pickTime;
     Button einreichen;
     ImageView location;
+    Spinner eintritt;
+    Spinner musikrichtung;
+    String item;
+    int spinner_position;
+
 
     @Nullable
     @Override
@@ -48,14 +55,6 @@ public class AddPartyFragment extends Fragment {
             }
         });
 
-        einreichen = (Button) v.findViewById(R.id.einreichen);
-        einreichen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //TODO: Implementieren des Einreichens
-            }
-        });
-
         location = (ImageView) v.findViewById(R.id.location_view);
         location.setClickable(true);
         location.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +64,72 @@ public class AddPartyFragment extends Fragment {
                 //TODO: Implementieren des automatischen Ausfüllens des Textfeldes aufgrund der derzeitigen GPS Location
             }
         });
+
+        eintritt = (Spinner) v.findViewById(R.id.party_price);
+        final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.EuroBeträge, android.R.layout.simple_spinner_dropdown_item);
+
+
+        eintritt.setAdapter(adapter);
+
+        eintritt.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int postition, long id) {
+
+                item = eintritt.getSelectedItem().toString();
+                if (!item.equals("Eintritt wählen"))
+                {
+                    spinner_position = adapter.getPosition(item);
+                    eintritt.setSelection(spinner_position);
+                    Toast.makeText(getContext(),eintritt.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
+
+                }else
+                {
+                    //nothing
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
+
+        musikrichtung = (Spinner) v.findViewById(R.id.party_music);
+        final ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getContext(), R.array.Musikrichtungen, android.R.layout.simple_spinner_dropdown_item);
+        musikrichtung.setAdapter(adapter2);
+
+        musikrichtung.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                item = musikrichtung.getSelectedItem().toString();
+                if (!item.equals("Musikrichtung wählen"))
+                {
+                    spinner_position = adapter2.getPosition(item);
+                    musikrichtung.setSelection(spinner_position);
+                    Toast.makeText(getContext(),musikrichtung.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
+
+                }else
+                {
+                    //nothing
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        einreichen = (Button) v.findViewById(R.id.einreichen);
+        einreichen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO: Implementieren des Einreichens
+            }
+        });
+
         return v;
     }
 }

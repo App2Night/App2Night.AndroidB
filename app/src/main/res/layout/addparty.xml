@@ -1,243 +1,234 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
     android:background="#e0e0e0"
     android:fillViewport="true"
-    >
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <TextView
-        android:text="Party Name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/party_name_label"
-        android:textStyle="normal|bold"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:paddingBottom="10dp"
-        android:paddingTop="15dp"
-
-        />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:inputType="text"
-        android:ems="10"
-        android:layout_below="@id/party_name_label"
-        android:id="@+id/party_name"
-        android:hint="Hier den Party Name eingeben."
-        android:textSize="14sp"
-        android:textAlignment="center"
-        android:background="#FFFFFF"
-        />
-
-    <TextView
-        android:text="Party Location"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/party_location_label"
-        android:layout_below="@id/party_name"
-        android:textStyle="normal|bold"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:paddingBottom="10dp"
-        android:paddingTop="15dp"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:inputType="textPostalAddress"
-        android:ems="10"
-        android:id="@+id/party_location"
-        android:layout_below="@id/party_location_label"
-        android:hint="Hier die Location eingeben."
-        android:textSize="14sp"
-        android:textAlignment="center"
-        android:background="#FFFFFF"
-        />
-
-    <TextView
-        android:text="Party Datum"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/party_datum_label"
-        android:layout_below="@id/party_location"
-        android:textStyle="normal|bold"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:paddingBottom="10dp"
-        android:paddingTop="15dp"/>
-
-    <Button
-        android:text="Klicken um Datum zu wählen"
-        android:textAlignment="center"
-        android:layout_width="170dp"
-        android:layout_height="30dp"
-        android:ems="10"
-        android:id="@+id/party_date"
-        android:layout_below="@id/party_datum_label"
-        android:background="#FFFFFF"
-        android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        android:textSize="12sp" />
-
-    <Button
-        android:text="Klicken um Zeit zu wählen"
-        android:layout_width="170dp"
-        android:layout_height="30dp"
-        android:ems="10"
-        android:id="@+id/party_time"
-        android:layout_below = "@id/party_datum_label"
-        android:layout_toRightOf="@id/party_date"
-        android:layout_marginLeft="30dp"
-        android:textSize="12sp"
-        android:textAlignment="center"
-        android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        android:background="#FFFFFF"/>
-
-    <TextView
-        android:text="Party Zeit"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/party_zeit_label"
-        android:layout_above="@id/party_time"
-        android:layout_toRightOf="@id/party_datum_label"
-        android:layout_marginLeft="30dp"
-        android:textSize="18sp"
-        android:textAlignment="center"
-        android:paddingBottom="10dp"
-        android:paddingTop="15dp"
-        android:textStyle="normal|bold" />
-
-    <TextView
-        android:text="Party Eintritt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/party_eintritt_label"
-        android:layout_below="@id/party_date"
-        android:textStyle="normal|bold"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:paddingBottom="10dp"
-        android:paddingTop="15dp"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/party_price"
-            android:hint="Hier den Eintritt in € eingeben"
-            android:textSize="14sp"
-            android:textAlignment="center"
-            android:background="#FFFFFF"
-            android:layout_below="@+id/party_eintritt_label"
-            android:layout_alignParentStart="true" />
 
         <TextView
-        android:text="Party Musik"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/party_music_label"
-        android:layout_below="@id/party_price"
-        android:textStyle="normal|bold"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:paddingBottom="10dp"
-        android:paddingTop="15dp"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:inputType="textAutoComplete"
-        android:ems="10"
-        android:layout_below="@id/party_music_label"
-        android:id="@+id/party_music"
-        android:hint="Hier die Musikrichtung eingeben"
-        android:textSize="14sp"
-        android:textAlignment="center"
-        android:background="#FFFFFF" />
-
-        <TextView
-            android:text="Party Veranstalter"
+            android:id="@+id/party_name_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/party_veranstalter_label"
-            android:textStyle="normal|bold"
-            android:textAlignment="center"
-            android:textSize="18sp"
             android:paddingBottom="10dp"
             android:paddingTop="15dp"
-            android:layout_below="@+id/party_music"
-            android:layout_alignParentStart="true" />
-
-        <EditText
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:inputType="text"
-        android:ems="10"
-        android:id="@+id/party_veranstalter"
-        android:layout_below="@id/party_veranstalter_label"
-        android:hint="Hier den Veranstalter eingeben"
-        android:textSize="14sp"
-        android:textAlignment="center"
-        android:background="#FFFFFF" />
-
-        <TextView
-            android:text="Beschreibung"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/beschreibung_label"
-            android:textStyle="normal|bold"
-            android:layout_below="@id/party_veranstalter"
+            android:text="Party Name"
             android:textAlignment="center"
             android:textSize="18sp"
-            android:paddingBottom="10dp"
-            android:paddingTop="15dp"/>
+            android:textStyle="normal|bold"
+
+            />
 
         <EditText
+            android:id="@+id/party_name"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@id/party_name_label"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="Hier den Party Name eingeben."
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/party_location_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/party_name"
+            android:paddingBottom="10dp"
+            android:paddingTop="15dp"
+            android:text="Party Location"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="normal|bold" />
+
+        <EditText
+            android:id="@+id/party_location"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@id/party_location_label"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="Hier die Location eingeben."
+            android:inputType="textPostalAddress"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/party_datum_label"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/party_location"
+            android:paddingBottom="10dp"
+            android:paddingTop="15dp"
+            android:text="Party Datum"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="normal|bold" />
+
+        <Button
+            android:id="@+id/party_date"
+            android:layout_width="160dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/party_datum_label"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:text="Klicken um Datum zu wählen"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/party_eintritt_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/party_date"
+            android:paddingBottom="10dp"
+            android:paddingTop="15dp"
+            android:text="Party Eintritt"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="normal|bold" />
+
+        <Button
+            android:id="@+id/party_time"
+            android:layout_width="160dp"
+            android:layout_height="30dp"
+            android:layout_above="@+id/party_eintritt_label"
+            android:layout_alignParentEnd="true"
+            android:background="#FFFFFF"
+            android:layout_marginLeft="30dp"
+            android:ems="10"
+            android:text="Klicken um Zeit zu wählen"
+            android:textAlignment="center"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/party_zeit_label"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/party_time"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@id/party_datum_label"
+            android:paddingBottom="10dp"
+            android:paddingTop="15dp"
+            android:text="Party Zeit"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="normal|bold" />
+
+        <Spinner
+            android:id="@+id/party_price"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/party_eintritt_label"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/party_music_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/party_price"
+            android:paddingBottom="10dp"
+            android:paddingTop="15dp"
+            android:text="Party Musik"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="normal|bold" />
+
+        <Spinner
+            android:id="@+id/party_music"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@id/party_music_label"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/party_veranstalter_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/party_music"
+            android:paddingBottom="10dp"
+            android:paddingTop="15dp"
+            android:text="Party Veranstalter"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="normal|bold" />
+
+        <EditText
+            android:id="@+id/party_veranstalter"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@id/party_veranstalter_label"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="Hier den Veranstalter eingeben"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/beschreibung_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/party_veranstalter"
+            android:paddingBottom="10dp"
+            android:paddingTop="15dp"
+            android:text="Beschreibung"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="normal|bold" />
+
+        <EditText
+            android:id="@+id/party_beschreibung"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:inputType="text"
-            android:ems="10"
-            android:id="@+id/party_beschreibung"
             android:layout_below="@id/beschreibung_label"
+            android:background="#FFFFFF"
+            android:ems="10"
             android:hint="Hier Beschreibung eingeben"
-            android:textSize="14sp"
+            android:inputType="text"
             android:textAlignment="center"
-            android:background="#FFFFFF" />
+            android:textSize="14sp" />
 
-    <Button
-        android:text="Einreichen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/party_beschreibung"
-        android:id="@+id/einreichen"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true" />
-
+        <Button
+            android:id="@+id/einreichen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/party_beschreibung"
+            android:text="Einreichen" />
 
 
         <ImageView
+            android:id="@+id/location_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_place_new"
-            android:layout_alignParentEnd="true"
             android:layout_alignBottom="@id/party_location_label"
-            android:paddingTop="7dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@id/party_location_label"
             android:paddingBottom="7dp"
             android:paddingRight="5dp"
-            android:layout_alignTop="@id/party_location_label"
+            android:paddingTop="7dp"
             android:scaleType="centerCrop"
-            android:id="@+id/location_view" />
-
-
+            app:srcCompat="@drawable/ic_place_new" />
 
 
     </RelativeLayout>
