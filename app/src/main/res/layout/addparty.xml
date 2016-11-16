@@ -209,12 +209,21 @@
 
         <Button
             android:id="@+id/einreichen"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"
             android:layout_below="@id/party_beschreibung"
-            android:text="Einreichen" />
+            android:text="Einreichen"
+            android:background="@color/button_color"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:typeface="sans"
+            android:fontFamily="sans-serif" />
 
 
         <ImageView

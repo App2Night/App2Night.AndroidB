@@ -12,9 +12,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.julianriegraf.app2night.Models.Party;
 
 /**
  * Created by robin on 24.10.2016.
@@ -22,6 +25,7 @@ import android.widget.Toast;
 
 public class AddPartyFragment extends Fragment {
 
+    EditText partyname, partylocation, veranstalter, beschreibung;
     Button pickDate ;
     Button pickTime;
     Button einreichen;
@@ -36,6 +40,13 @@ public class AddPartyFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.addparty, container, false);
+
+
+        partyname = (EditText) v.findViewById(R.id.party_name);
+        partylocation = (EditText) v.findViewById(R.id.party_location);
+        veranstalter = (EditText) v.findViewById(R.id.party_veranstalter);
+        beschreibung = (EditText) v.findViewById(R.id.party_beschreibung);
+
 
         pickDate = (Button) v.findViewById(R.id.party_date);
         pickDate.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +138,16 @@ public class AddPartyFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //TODO: Implementieren des Einreichens
+
+                /*Party newParty = new Party();
+                newParty.setDescription(beschreibung.getText().toString());
+                newParty.setHost();         Abklären wir Host gehandelt werden soll
+                newParty.setLocation();     Abklären wie Location gehandelt werden soll
+                newParty.setMusicGenre(musikrichtung.getSelectedItem().toString()); MusikGenre sollte eigentlich String sein
+                newParty.setPartyDate(pickDate.getText().toString());
+                newParty.setTime(pickTime.getText().toString());    Time fehlt innerhalb der Party
+                newParty.setPartyName(partyname.getText().toString());
+                newParty.setPrice(eintritt.getSelectedItem().toString()); In int noch umwandeln */
             }
         });
 
